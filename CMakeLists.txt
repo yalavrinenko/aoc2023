@@ -1,14 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
-project (aoc2021)
+project (aoc2022)
 
 find_package(fmt)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-Wall -Werror")
-
-add_executable(6 6/solution.cpp)
-target_compile_definitions(6 PRIVATE -DDAY_PATH="../6/data.in")
-target_link_libraries(6 fmt::fmt)
+set(CMAKE_CXX_FLAGS "-Wall -Werror -stdlib=libc++")
 
 function(aoc_day_solution day_id)
     if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${day_id}/solution.cpp")
@@ -22,6 +18,12 @@ function(aoc_day_solution day_id)
     target_link_libraries(${day_id} fmt::fmt)
 endfunction()
 
+aoc_day_solution(1)
+aoc_day_solution(2)
+aoc_day_solution(3)
+aoc_day_solution(4)
+aoc_day_solution(5)
+aoc_day_solution(6)
 aoc_day_solution(7)
 aoc_day_solution(8)
 aoc_day_solution(9)

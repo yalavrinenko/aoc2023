@@ -10,13 +10,10 @@
 std::vector<AOC_Input> AOC_ParceInput(std::string const &path) {
   std::ifstream in(path);
   std::string line;
-  std::vector<AOC_Input> v;
-  while (std::getline(in, line)){
-    auto input_data = AOC_Reader::create_from_string(line);
-    if (input_data)
-      v.emplace_back(input_data.value());
-  }
-  return v;
+  std::vector<std::string> v;
+  while (std::getline(in, line))
+      v.emplace_back(line);
+  return AOC_Reader::from_string_vector(v);
 }
 
 template<typename func_t, typename ... args_t>

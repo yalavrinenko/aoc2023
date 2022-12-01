@@ -4,21 +4,22 @@
 
 #ifndef AOC_2020_MAIN_HPP
 #define AOC_2020_MAIN_HPP
-#include <vector>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <optional>
+#include <vector>
 
-#include <unordered_map>
-#include <sstream>
+#include <algorithm>
+#include <fmt/color.h>
+#include <fmt/core.h>
+#include <fmt/printf.h>
 #include <iterator>
 #include <numeric>
 #include <ranges>
-#include <algorithm>
-#include <numeric>
-#include <fmt/core.h>
-#include <fmt/printf.h>
-#include <fmt/color.h>
+#include <sstream>
+#include <unordered_map>
+
+namespace vw = std::ranges::views;
 
 
 struct AOC_Input;
@@ -27,8 +28,9 @@ struct AOC_Output;
 AOC_Output part_1(std::vector<AOC_Input> const &in);
 AOC_Output part_2(std::vector<AOC_Input> const &in);
 
-struct AOC_Reader{
-  static std::optional<AOC_Input> create_from_string(std::string const &line);
+struct AOC_Reader {
+  static std::vector<AOC_Input>
+  from_string_vector(const std::vector<std::string> &line);
 };
 
 

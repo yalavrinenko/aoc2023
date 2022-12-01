@@ -10,14 +10,10 @@ struct AOC_Output{
 };
 
 struct AOC_Input{
-
-  explicit AOC_Input(std::string const &s){
-
-  }
 };
 
-std::optional<AOC_Input> AOC_Reader::create_from_string(const std::string &line) {
-  return AOC_Input(line);
+std::vector<AOC_Input> AOC_Reader::from_string_vector(const std::vector<std::string> &lines) {
+  return {};
 }
 
 AOC_Output part_1(std::vector<AOC_Input> const &v){
