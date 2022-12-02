@@ -33,5 +33,20 @@ struct AOC_Reader {
   from_string_vector(const std::vector<std::string> &line);
 };
 
+template<typename V>
+auto to_vector(V &&v) {
+  decltype(auto) cv = std::forward<V>(v) | vw::common;
+  return std::vector(cv.begin(), cv.end());
+}
+
+struct as_vector_impl {};
+
+inline auto as_vector = as_vector_impl{};
+
+template<typename V>
+auto operator|(V &&v, const as_vector_impl &obj) {
+  return to_vector(std::forward<V>(v));
+}
+
 
 #endif//AOC_2020_MAIN_HPP
