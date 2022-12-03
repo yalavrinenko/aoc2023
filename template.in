@@ -4,8 +4,8 @@
 #include "../main.hpp"
 
 struct AOC_Output{
-  long value;
-  AOC_Output(long value) : value(value) {}
+  long value{};
+  AOC_Output() = default;
   auto operator() () const { return value; }
 };
 

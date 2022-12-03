@@ -3,7 +3,7 @@ project (aoc2022)
 
 find_package(fmt)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_FLAGS "-Wall -Werror -stdlib=libc++")
 
 function(aoc_day_solution day_id)
