@@ -6,6 +6,7 @@
 struct AOC_Output{
   long value{};
   AOC_Output() = default;
+  explicit AOC_Output(auto v) : value{v} {}
   auto operator() () const { return value; }
 };
 
