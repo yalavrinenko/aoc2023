@@ -44,9 +44,19 @@ struct as_vector_impl {};
 inline auto as_vector = as_vector_impl{};
 
 template<typename V>
-auto operator|(V &&v, const as_vector_impl &obj) {
+inline auto operator|(V &&v, const as_vector_impl &obj) {
   return to_vector(std::forward<V>(v));
 }
 
+template<typename T>
+struct srange_to_value {
+  static auto operator()(auto &&r) {
+    T init{};
+    for (auto e: r) {
+      init = init * 10 + e - '0';
+    }
+    return init;
+  }
+};
 
 #endif//AOC_2020_MAIN_HPP

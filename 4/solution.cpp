@@ -17,19 +17,15 @@ struct AOC_Input {
 std::vector<AOC_Input> AOC_Reader::from_string_vector(
     const std::vector<std::string> &lines) {
   return lines | vw::transform([](const auto &in) {
-           auto pads = in | vw::lazy_split(',') |
-                       vw::transform([](const auto &e) {
-                         auto v = e | vw::lazy_split('-') |
-                                  vw::transform([](const auto &lz) {
-                                    auto cv = lz | vw::common;
-                                    return std::stol(std::string(
-                                        cv.begin(), cv.end()));
-                                  }) |
-                                  as_vector;
-                         return std::vector{v.front(), v.back()};
-                       }) |
-                       as_vector;
-           return AOC_Input{std::pair{pads.front(), pads.back()}};
+           auto pads =
+               in | vw::lazy_split(',') |
+               vw::transform([](const auto &e) {
+                 return e | vw::lazy_split('-') |
+                        vw::transform(srange_to_value<long>{}) |
+                        as_vector;
+               });
+           return AOC_Input{
+               std::pair{pads.front(), (pads | vw::drop(1)).front()}};
          }) |
          as_vector;
 }
