@@ -98,8 +98,7 @@ AOC_Output part_2(std::vector<AOC_Input> const &v) {
         auto path = bfs(map, QEntry{i, j, 0}, end);
         if (path) {
           if (!opt_distance) opt_distance = *path;
-          if (*path < *opt_distance)
-            opt_distance = *path;
+          if (*path < *opt_distance) opt_distance = *path;
         }
       }
     }
