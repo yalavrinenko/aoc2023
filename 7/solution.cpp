@@ -1,7 +1,6 @@
 //
 // Created by yalavrinenko on 02.12.2020.
 //
-#define FMT_HEADER_ONLY
 #include "../main.hpp"
 #include <fmt/format.h>
 #include <functional>
