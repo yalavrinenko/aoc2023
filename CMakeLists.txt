@@ -15,7 +15,7 @@ function(aoc_day_solution day_id)
     endif()
     add_executable(${day_id} ${CMAKE_CURRENT_SOURCE_DIR}/${day_id}/solution.cpp)
     target_compile_definitions(${day_id} PUBLIC -DDAY_PATH="../${day_id}/data.in")
-    target_link_libraries(${day_id} fmt::fmt-header-only)
+    target_link_libraries(${day_id} fmt::fmt-header-only -lpthread)
 endfunction()
 
 aoc_day_solution(1)
