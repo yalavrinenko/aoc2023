@@ -20,3 +20,4 @@ endfunction()
 
 aoc_day_solution(1)
 aoc_day_solution(2)
+aoc_day_solution(3)
