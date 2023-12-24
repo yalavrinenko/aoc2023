@@ -36,3 +36,7 @@ aoc_day_solution(15)
 aoc_day_solution(16)
 aoc_day_solution(17)
 aoc_day_solution(18)
+aoc_day_solution(19)
+aoc_day_solution(20)
+
+aoc_day_solution(22)
